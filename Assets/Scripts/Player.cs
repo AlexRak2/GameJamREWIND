@@ -88,6 +88,7 @@ public class Player : MonoBehaviour
             if (hitBackward.distance < wallSafeDis)
             {
                 closeLeft = true;
+
             }
             else if (Physics.Raycast(bot.position, transform.TransformDirection(Vector3.back), out hitBackward, Mathf.Infinity, layerMask))
             {

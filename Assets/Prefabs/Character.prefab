@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1050445702918819154}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: -0.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4640335664880680275}
@@ -103,7 +103,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3206581066956832195}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4640335664880680275}
@@ -209,7 +209,10 @@ MonoBehaviour:
   rewindKey: 324
   spellImage: {fileID: 0}
   spellImageMask: {fileID: 0}
+  spellText: {fileID: 0}
   fireBallChargeTime: 2
+  rewindChargeTime: 10
+  plants: []
 --- !u!54 &4640335664880680278
 Rigidbody:
   m_ObjectHideFlags: 0

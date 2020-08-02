@@ -18,6 +18,7 @@ public class Spells : MonoBehaviour
     [SerializeField] float fireBallChargeTime = 2f;
     [SerializeField] float rewindChargeTime = 2f;
 
+    [SerializeField] List<PlantMovement> plants = new List<PlantMovement>();
 
     bool fireCasting = false;
     bool rewindCasting = false;
@@ -28,7 +29,7 @@ public class Spells : MonoBehaviour
 
     void Start()
     {
-        
+        plants.AddRange(FindObjectsOfType<PlantMovement>());
     }
 
     void Update()
@@ -70,7 +71,10 @@ public class Spells : MonoBehaviour
             // Start rewind effect, slowly rewind the environment
             if (!rewindCasting)
             {
-                FindObjectOfType<PlantMovement>().SetRewind(true);
+                foreach(PlantMovement plant in plants)
+                {
+                    plant.SetRewind(true);
+                }
             }
             rewindCasting = true;
             spellText.text = "Rew.";
@@ -84,7 +88,10 @@ public class Spells : MonoBehaviour
 
         if (Input.GetKeyUp(rewindKey) && rewindCasting)
         {
-            FindObjectOfType<PlantMovement>().SetRewind(false);
+            foreach (PlantMovement plant in plants)
+            {
+                plant.SetRewind(false);
+            }
             print("Rewinded for a value of: " + chargeValue + "!");
             spellText.text = "";
             rewindCasting = false;

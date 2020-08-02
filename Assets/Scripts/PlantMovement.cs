@@ -56,6 +56,7 @@ public class PlantMovement : MonoBehaviour
     public void SetRewind(bool rewindIn)
     {
         rewinding = rewindIn;
+        reachedEnd = false;
         UpdateTarget();
     }
 }
