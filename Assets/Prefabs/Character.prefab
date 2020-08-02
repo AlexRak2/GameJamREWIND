@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 4640335664880680279}
   - component: {fileID: 4640335664880680301}
   - component: {fileID: 4640335664880680273}
+  - component: {fileID: 8932432543217983261}
   - component: {fileID: 4640335664880680278}
   m_Layer: 0
   m_Name: Character
@@ -189,10 +190,26 @@ MonoBehaviour:
   wallSafeDis: 0.45
   top: {fileID: 2662002703199727964}
   bot: {fileID: 4576536419102666524}
-  fire: 323
   grounded: 0
   closeRight: 0
   closeLeft: 0
+--- !u!114 &8932432543217983261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4640335664880680303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f06e493ebb423ac4b8bcef44a525650a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireBallKey: 323
+  rewindKey: 324
+  spellImage: {fileID: 0}
+  spellImageMask: {fileID: 0}
+  fireBallChargeTime: 2
 --- !u!54 &4640335664880680278
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -223,7 +240,7 @@ GameObject:
   - component: {fileID: 5946916727860619088}
   - component: {fileID: 7289538670487980241}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Body Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

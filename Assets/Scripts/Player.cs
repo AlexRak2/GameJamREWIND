@@ -11,7 +11,6 @@ public class Player : MonoBehaviour
     [SerializeField] Transform top;
     [SerializeField] Transform bot;
 
-    [SerializeField] KeyCode fire;
 
     [SerializeField] bool grounded = false;
     float dirAtJump = 0f;
