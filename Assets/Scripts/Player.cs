@@ -7,14 +7,18 @@ public class Player : MonoBehaviour
 {
     [SerializeField] float speed = 1f;
     [SerializeField] float jumpSpeed = 1f;
+    [SerializeField] float wallSafeDis = .45f;
+    [SerializeField] Transform top;
+    [SerializeField] Transform bot;
 
     [SerializeField] KeyCode fire;
 
     [SerializeField] bool grounded = false;
     float dirAtJump = 0f;
+    [SerializeField] bool closeRight = false;
+    [SerializeField] bool closeLeft = false;
     bool startJump = false;
-    bool haltMove = false;
-    bool collided = false;
+    
     Vector2 movement;
     Rigidbody rb;
 
@@ -30,13 +34,9 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (1 == 1)
-        {
-            movement = new Vector2(Input.GetAxis("Horizontal"), 0f);
-            print(movement);
-        }
+        movement = new Vector2(Input.GetAxis("Horizontal"), 0f);
 
-        if (Input.GetKeyDown(KeyCode.Space) && grounded)
+        if (Input.GetKeyDown(KeyCode.Space) && grounded && !startJump)
         {
             dirAtJump = Input.GetAxis("Horizontal");
             startJump = true;
@@ -45,7 +45,9 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!haltMove)
+        CheckDistanceToWalls();
+
+        if (movement.x > 0.1f || movement.x < -0.1f)
         {
             MoveCharacter(movement);
         }
@@ -57,14 +59,70 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void CheckDistanceToWalls()
+    {
+        int layerMask = 1 << 8;
+        RaycastHit hitForward;
+        if (Physics.Raycast(top.position, transform.TransformDirection(Vector3.forward), out hitForward, Mathf.Infinity, layerMask))
+        {
+            if (hitForward.distance < wallSafeDis)
+            {
+                closeRight = true;
+            }
+            else if (Physics.Raycast(bot.position, transform.TransformDirection(Vector3.forward), out hitForward, Mathf.Infinity, layerMask))
+            {
+                if (hitForward.distance < wallSafeDis)
+                {
+                    closeRight = true;
+                }
+                else
+                {
+                    closeRight = false;
+                }
+            }
+
+        }
+
+        RaycastHit hitBackward;
+        if (Physics.Raycast(top.position, transform.TransformDirection(Vector3.back), out hitBackward, Mathf.Infinity, layerMask))
+        {
+            if (hitBackward.distance < wallSafeDis)
+            {
+                closeLeft = true;
+            }
+            else if (Physics.Raycast(bot.position, transform.TransformDirection(Vector3.back), out hitBackward, Mathf.Infinity, layerMask))
+            {
+                if (hitBackward.distance < wallSafeDis)
+                {
+                    closeLeft = true;
+                }
+                else
+                {
+                    closeLeft = false;
+                }
+            }
+        }
+    }
+
     void MoveCharacter(Vector2 direction)
     {
         float activeSpeed = speed;
         float currentDir = Input.GetAxis("Horizontal");
 
+        // Stops movement clipping through objects
+        if (currentDir < 0 && closeLeft)
+        {
+            direction.x = 0;
+        }
+        
+        if (currentDir > 0 && closeRight)
+        {
+            direction.x = 0;
+        }
+
         if (!grounded) // Slows down movement speed if changing directions mid air
         {
-            if ((currentDir > 0 && dirAtJump < 0) || (currentDir < 0 && dirAtJump > 0))
+            if ((currentDir > 0 && dirAtJump < 0) || (currentDir < 0 && dirAtJump > 0) || (dirAtJump <= 0.1f && dirAtJump >= -0.1f))
             {
                 activeSpeed = speed * .25f;
             }
@@ -76,57 +134,23 @@ public class Player : MonoBehaviour
 
     void JumpCharacter(Vector3 direction)
     {
-        rb.velocity = (transform.up + (direction * jumpSpeed * Time.deltaTime));
+        rb.velocity = (transform.up + (direction * jumpSpeed));
     }
 
-    void OnTriggerStay(Collider other)
+    void OnCollisionStay(Collision other)
     {
         if (other.gameObject.layer == 8)
         {
             grounded = true;
-            haltMove = false;
-            collided = false;
 
         }
     }
 
-    void OnTriggerExit(Collider other)
+    void OnCollisionExit(Collision other)
     {
         if (other.gameObject.layer == 8)
         {
             grounded = false;
         }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.layer == 9)
-        {
-            if (!grounded)
-            {
-                haltMove = true;
-
-                Invoke("RestoreMove", 1f);
-                movement.x = 0f;
-                collided = true;
-
-                float magnitude = 30f;
-
-                Vector3 force = collision.transform.position - transform.forward;
-
-                force.Normalize();
-                rb.AddForce(-force * magnitude);
-            }
-            else
-            {
-
-                //rb.MovePosition((Vector2)transform.position + ( -movement * speed*5 * Time.deltaTime));
-            }
-        }
-    }
-
-    void RestoreMove()
-    {
-        haltMove = false;
     }
 }
