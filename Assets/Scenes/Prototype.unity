@@ -1567,6 +1567,9 @@ MonoBehaviour:
   positions:
   - {fileID: 2103616294}
   - {fileID: 911885702}
+  rewinding: 0
+  currentTarget: 1
+  prevTarget: 0
 --- !u!4 &1187720658
 Transform:
   m_ObjectHideFlags: 0
@@ -2617,10 +2620,6 @@ PrefabInstance:
     - target: {fileID: 2930341773727510762, guid: ecc4385da90034d448c0869803a98e29, type: 3}
       propertyPath: m_fontSize
       value: 43.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2930341773727510762, guid: ecc4385da90034d448c0869803a98e29, type: 3}
-      propertyPath: m_text
-      value: Fire
       objectReference: {fileID: 0}
     - target: {fileID: 2930341774509361373, guid: ecc4385da90034d448c0869803a98e29, type: 3}
       propertyPath: m_LocalPosition.x

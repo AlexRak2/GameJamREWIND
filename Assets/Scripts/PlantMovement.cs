@@ -25,7 +25,7 @@ public class PlantMovement : MonoBehaviour
         }
         else
         {
-            plant.transform.position = Vector3.MoveTowards(plant.transform.position,, positions[prevTarget].position, speed * Time.deltaTime);
+            plant.transform.position = Vector3.MoveTowards(plant.transform.position, positions[prevTarget].position, speed * Time.deltaTime);
         }
     }
 

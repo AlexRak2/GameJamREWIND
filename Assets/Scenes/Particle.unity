@@ -5249,6 +5249,18 @@ PrefabInstance:
       propertyPath: SubModule.subEmitters.Array.data[0].emitter
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7559765360531597720, guid: 21444593a81ca8944afcaa7046a159d0, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7559765360531597720, guid: 21444593a81ca8944afcaa7046a159d0, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7559765360531597720, guid: 21444593a81ca8944afcaa7046a159d0, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7649177164486556870, guid: 21444593a81ca8944afcaa7046a159d0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.59
