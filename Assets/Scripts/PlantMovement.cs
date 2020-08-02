@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,27 +11,51 @@ public class PlantMovement : MonoBehaviour
     [SerializeField] bool rewinding = false;
     [SerializeField] int currentTarget = 1;
     [SerializeField] int prevTarget = 0;
+    [SerializeField] int targets;
+    [SerializeField] bool reachedEnd = false;
 
 
     void Start()
     {
-        
+        targets = positions.Count;
     }
 
     void Update()
     {
-        if (!rewinding)
+        if (Vector3.Distance(plant.transform.position, positions[currentTarget].position) <= 0.1f)
+        {
+            UpdateTarget();
+        }
+
+        if (!reachedEnd)
         {
             plant.transform.position = Vector3.MoveTowards(plant.transform.position, positions[currentTarget].position, speed * Time.deltaTime);
         }
+
+    }
+
+    private void UpdateTarget()
+    {
+        prevTarget = currentTarget;
+        if (!rewinding)
+        {
+            currentTarget++;
+        }
         else
         {
-            plant.transform.position = Vector3.MoveTowards(plant.transform.position, positions[prevTarget].position, speed * Time.deltaTime);
+            currentTarget--;
+        }
+
+        if (currentTarget > targets-1 || currentTarget < 0)
+        {
+            reachedEnd = true;
+            currentTarget = prevTarget;
         }
     }
 
     public void SetRewind(bool rewindIn)
     {
         rewinding = rewindIn;
+        UpdateTarget();
     }
 }

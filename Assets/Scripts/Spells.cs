@@ -68,17 +68,23 @@ public class Spells : MonoBehaviour
         if (Input.GetKey(rewindKey) && !fireCasting)
         {
             // Start rewind effect, slowly rewind the environment
+            if (!rewindCasting)
+            {
+                FindObjectOfType<PlantMovement>().SetRewind(true);
+            }
             rewindCasting = true;
-            spellText.text = "Rev.";
+            spellText.text = "Rew.";
             maxChargeTime = rewindChargeTime;
             chargeTime += Time.deltaTime;
             chargeValue = chargeTime / maxChargeTime;
             spellImageMask.fillAmount = chargeValue;
         }
 
+
+
         if (Input.GetKeyUp(rewindKey) && rewindCasting)
         {
-            // Stop rewind effect
+            FindObjectOfType<PlantMovement>().SetRewind(false);
             print("Rewinded for a value of: " + chargeValue + "!");
             spellText.text = "";
             rewindCasting = false;
