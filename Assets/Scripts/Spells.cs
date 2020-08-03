@@ -67,12 +67,12 @@ public class Spells : MonoBehaviour
 
                 // Shoot fireball away with force based on charge value (0f to 1f)
                 ParticleSystem fireBallParticle = Instantiate(FireBall, FireBallSpawn.transform.position, FireBallSpawn.transform.rotation * Quaternion.Euler(0f, -90, 0f));
-                fireBallParticle.startSize = chargeValue * 4;
+                fireBallParticle.startSize = chargeValue * 3;
                 ParticleSystem[] fireBallChilds = fireBallParticle.GetComponentsInChildren<ParticleSystem>();
                 //FB.startSpeed = chargeValue * 3;
                 foreach (ParticleSystem pfbc in fireBallChilds)
                 {
-                    pfbc.startSize = chargeValue * 4;
+                    pfbc.startSize = chargeValue * 2;
                 }
 
                 print("Fireball fired with value of: " + chargeValue + "!");

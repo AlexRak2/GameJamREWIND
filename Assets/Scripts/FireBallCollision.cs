@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class FireBallCollision : MonoBehaviour
 {
-    [SerializeField] ParticleSystem FireBallHit;
+    [SerializeField] ParticleSystem fireBallHit;
+    ParticleSystem PSystem;
+    List<ParticleCollisionEvent> collisionEvents = new List<ParticleCollisionEvent>();
+    ParticleCollisionEvent[] test;
 
-    // Start is called before the first frame update
+
     void Start()
     {
+        PSystem = GetComponent<ParticleSystem>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -19,10 +22,12 @@ public class FireBallCollision : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        print("Working" + other.gameObject);
 
+        int collNum = PSystem.GetSafeCollisionEventSize();
+        PSystem.GetCollisionEvents(other, collisionEvents);
+
+        Instantiate(fireBallHit, collisionEvents[collNum - 1].intersection, Quaternion.identity);
         Destroy(this.gameObject, 0.06f);
-        Instantiate(FireBallHit, other.transform.position, Quaternion.identity);
 
     }
 }
