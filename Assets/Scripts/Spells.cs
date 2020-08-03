@@ -57,17 +57,27 @@ public class Spells : MonoBehaviour
 
         if (Input.GetKeyUp(fireBallKey) && fireCasting)
         {
-            // Shoot fireball away with force based on charge value (0f to 1f)
-            ParticleSystem fireBallParticle = Instantiate(FireBall, FireBallSpawn.transform.position,FireBallSpawn.transform.rotation * Quaternion.Euler(0f, -90, 0f));
-            fireBallParticle.startSize = chargeValue * 4;
-            ParticleSystem[] fireBallChilds = fireBallParticle.GetComponentsInChildren<ParticleSystem>();
-            foreach (ParticleSystem pfbc in fireBallChilds)
+            if (chargeValue > 0.2f)
             {
-                pfbc.startSize = chargeValue * 4;
-            }
-            //FB.startSpeed = chargeValue * 3;
+                if (chargeValue > 1f)
+                {
+                    chargeValue = 1f;
+                }
 
-            print("Fireball fired with value of: " + chargeValue + "!");
+                // Shoot fireball away with force based on charge value (0f to 1f)
+                ParticleSystem fireBallParticle = Instantiate(FireBall, FireBallSpawn.transform.position, FireBallSpawn.transform.rotation * Quaternion.Euler(0f, -90, 0f));
+                fireBallParticle.startSize = chargeValue * 4;
+                ParticleSystem[] fireBallChilds = fireBallParticle.GetComponentsInChildren<ParticleSystem>();
+                //FB.startSpeed = chargeValue * 3;
+                foreach (ParticleSystem pfbc in fireBallChilds)
+                {
+                    pfbc.startSize = chargeValue * 4;
+                }
+
+                print("Fireball fired with value of: " + chargeValue + "!");
+
+            }
+
             spellText.text = "";
             fireCasting = false;
             chargeTime = 0f;
