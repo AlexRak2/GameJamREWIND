@@ -57,8 +57,10 @@ public class Spells : MonoBehaviour
 
         if (Input.GetKeyUp(fireBallKey) && fireCasting)
         {
-            if (chargeValue > 0.2f)
+            if (chargeValue < 0.15f) 
             {
+                chargeValue = 0.15f;
+            }
                 if (chargeValue > 1f)
                 {
                     chargeValue = 1f;
@@ -76,7 +78,6 @@ public class Spells : MonoBehaviour
 
                 print("Fireball fired with value of: " + chargeValue + "!");
 
-            }
 
             spellText.text = "";
             fireCasting = false;
