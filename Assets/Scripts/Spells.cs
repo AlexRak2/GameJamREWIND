@@ -16,6 +16,10 @@ public class Spells : MonoBehaviour
     [SerializeField] TextMeshProUGUI spellText;
 
     [SerializeField] float fireBallChargeTime = 2f;
+    [SerializeField] GameObject FireBallSpawn;
+    [SerializeField] ParticleSystem FireBall;
+    [SerializeField] ParticleSystem FireBallHit;
+
     [SerializeField] float rewindChargeTime = 2f;
 
     [SerializeField] List<PlantMovement> plants = new List<PlantMovement>();
@@ -54,6 +58,10 @@ public class Spells : MonoBehaviour
         if (Input.GetKeyUp(fireBallKey) && fireCasting)
         {
             // Shoot fireball away with force based on charge value (0f to 1f)
+            var FB = Instantiate(FireBall, FireBallSpawn.transform.position,FireBallSpawn.transform.rotation * Quaternion.Euler(0f, -90, 0f));
+            FB.startSize = chargeValue * 4;
+            FB.GetComponentInChildren<ParticleSystem>().startSize = chargeValue * 4;
+            //FB.startSpeed = chargeValue * 3;
             print("Fireball fired with value of: " + chargeValue + "!");
             spellText.text = "";
             fireCasting = false;
