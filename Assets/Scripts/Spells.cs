@@ -18,7 +18,6 @@ public class Spells : MonoBehaviour
     [SerializeField] float fireBallChargeTime = 2f;
     [SerializeField] GameObject FireBallSpawn;
     [SerializeField] ParticleSystem FireBall;
-    [SerializeField] ParticleSystem FireBallHit;
 
     [SerializeField] float rewindChargeTime = 2f;
 

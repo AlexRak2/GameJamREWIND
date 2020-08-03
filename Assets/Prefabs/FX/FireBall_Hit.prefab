@@ -57,7 +57,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 0.8
+    scalar: 0
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -847,7 +847,7 @@ ParticleSystem:
     m_BurstCount: 1
     m_Bursts:
     - serializedVersion: 2
-      time: 0.05
+      time: 0
       countCurve:
         serializedVersion: 2
         minMaxState: 0
@@ -4775,7 +4775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
       propertyPath: startDelay.scalar
-      value: 0.8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
@@ -4795,6 +4795,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
       propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].time
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 19900000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}

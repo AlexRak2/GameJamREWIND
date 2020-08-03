@@ -9483,6 +9483,7 @@ GameObject:
   - component: {fileID: 7649177164486556870}
   - component: {fileID: 7559765360531597720}
   - component: {fileID: 7560693627722320002}
+  - component: {fileID: 3637004316341131713}
   m_Layer: 0
   m_Name: FireBall
   m_TagString: Untagged
@@ -13057,9 +13058,9 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 3
-    type: 0
+    type: 1
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
@@ -13127,7 +13128,7 @@ ParticleSystem:
     m_Bounce:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -13239,7 +13240,7 @@ ParticleSystem:
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
@@ -14259,3 +14260,16 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &3637004316341131713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7651202863517957060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f01e23272f8b634dbb233c6aa2821ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FireBallHit: {fileID: 2678269249680134698, guid: 385aa6b9800880a438d1a3ccbe7a1c93, type: 3}
