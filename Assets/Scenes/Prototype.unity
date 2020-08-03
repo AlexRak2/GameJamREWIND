@@ -2903,6 +2903,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
+    - target: {fileID: 7699750874931277945, guid: f730f6d113491d5429cd4199761ddc0d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8607733683033448555, guid: f730f6d113491d5429cd4199761ddc0d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8932432543217983261, guid: f730f6d113491d5429cd4199761ddc0d, type: 3}
       propertyPath: spellImage
       value: 
