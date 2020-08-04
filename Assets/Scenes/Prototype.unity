@@ -1745,6 +1745,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1213888886 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8191053894429118671, guid: f730f6d113491d5429cd4199761ddc0d, type: 3}
+  m_PrefabInstance: {fileID: 4640335664571969778}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25e03ece2877f2c4792b029994233fcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1302560393
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2922,14 +2933,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
-    - target: {fileID: 7699750874931277945, guid: f730f6d113491d5429cd4199761ddc0d, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8607733683033448555, guid: f730f6d113491d5429cd4199761ddc0d, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8932432543217983261, guid: f730f6d113491d5429cd4199761ddc0d, type: 3}
       propertyPath: spellImage
       value: 
@@ -2946,6 +2949,10 @@ PrefabInstance:
       propertyPath: postProcessVolume
       value: 
       objectReference: {fileID: 360753110}
+    - target: {fileID: 8932432543217983261, guid: f730f6d113491d5429cd4199761ddc0d, type: 3}
+      propertyPath: playerStats
+      value: 
+      objectReference: {fileID: 1213888886}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f730f6d113491d5429cd4199761ddc0d, type: 3}
 --- !u!1001 &6412284396910814402
