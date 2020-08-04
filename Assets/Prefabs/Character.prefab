@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 4640335664880680279}
   - component: {fileID: 4640335664880680301}
   - component: {fileID: 4640335664880680273}
+  - component: {fileID: 8191053894429118671}
   - component: {fileID: 8932432543217983261}
   - component: {fileID: 4640335664880680278}
   m_Layer: 10
@@ -193,6 +194,18 @@ MonoBehaviour:
   grounded: 0
   closeRight: 0
   closeLeft: 0
+--- !u!114 &8191053894429118671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4640335664880680303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25e03ece2877f2c4792b029994233fcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8932432543217983261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,6 +228,7 @@ MonoBehaviour:
   FireBall: {fileID: 7559765360531597720, guid: 21444593a81ca8944afcaa7046a159d0, type: 3}
   rewindChargeTime: 10
   plants: []
+  postProcessVolume: {fileID: 0}
 --- !u!54 &4640335664880680278
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -390,7 +404,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5043994208715178440}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

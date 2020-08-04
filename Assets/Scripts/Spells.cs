@@ -10,6 +10,7 @@ using UnityEngine.Rendering.Universal;
 
 public class Spells : MonoBehaviour
 {
+    [SerializeField] PlayerStats playerStats;
     [SerializeField] KeyCode fireBallKey;
     [SerializeField] KeyCode rewindKey;
 
@@ -54,6 +55,8 @@ public class Spells : MonoBehaviour
     {
         if (Input.GetKey(fireBallKey) && !rewindCasting)
         {
+            //Perhaps make it so the mana bar shows how much itll consume
+            
             fireCasting = true;
             spellText.text = "Fire";
             maxChargeTime = fireBallChargeTime;
@@ -62,7 +65,7 @@ public class Spells : MonoBehaviour
             spellImageMask.fillAmount = chargeValue;
         }
 
-        if (Input.GetKeyUp(fireBallKey) && fireCasting)
+        if (Input.GetKeyUp(fireBallKey) && fireCasting && playerStats.currentMana >0)
         {
             if (chargeValue < 0.15f) 
             {
@@ -73,8 +76,11 @@ public class Spells : MonoBehaviour
                     chargeValue = 1f;
                 }
 
-                // Shoot fireball away with force based on charge value (0f to 1f)
-                ParticleSystem fireBallParticle = Instantiate(FireBall, FireBallSpawn.transform.position, FireBallSpawn.transform.rotation * Quaternion.Euler(0f, -90, 0f));
+            //to fix, get it linked up with how much the charge value is. and balance;
+            float manaUsed = chargeValue * 3;
+            playerStats.UseMana(manaUsed);
+            // Shoot fireball away with force based on charge value (0f to 1f)
+            ParticleSystem fireBallParticle = Instantiate(FireBall, FireBallSpawn.transform.position, FireBallSpawn.transform.rotation * Quaternion.Euler(0f, -90, 0f));
                 fireBallParticle.startSize = chargeValue * 3;
                 ParticleSystem[] fireBallChilds = fireBallParticle.GetComponentsInChildren<ParticleSystem>();
                 //FB.startSpeed = chargeValue * 3;
