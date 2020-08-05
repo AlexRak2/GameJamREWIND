@@ -49,6 +49,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plant: {fileID: 2919197573969514236}
+  plantHead: {fileID: 0}
+  plantMid: {fileID: 0}
+  plantTail: {fileID: 0}
   speed: 0.5
   positions:
   - {fileID: 2918792269185616867}
@@ -301,6 +304,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6736005812966692399, guid: 126f3120c0431d84889165727510aa53, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575293621181391603, guid: 126f3120c0431d84889165727510aa53, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575293621181391603, guid: 126f3120c0431d84889165727510aa53, type: 3}
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
