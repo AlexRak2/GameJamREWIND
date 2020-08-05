@@ -21,6 +21,7 @@ public class BasicAI : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        spells = player.GetComponent<Spells>();
         oldPos = transform.position;
     }
     // Update is called once per frame
