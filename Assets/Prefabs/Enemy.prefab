@@ -110,13 +110,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spells: {fileID: 0}
-  smallRange: 3
-  rewindRange: 6
+  smallRange: 4
+  rewindRange: 8
   currentRange: 0
-  normalSpeed: 1
-  rewindSpeed: 2
+  normalSpeed: 2
+  rewindSpeed: 6
   currentSpeed: 0
   respawnTime: 4
   timer: 0
-  alive: 0
+  alive: 1
   player: {fileID: 0}
