@@ -27,7 +27,7 @@ public class Spells : MonoBehaviour
     [SerializeField] List<PlantMovement> plants = new List<PlantMovement>();
 
     bool fireCasting = false;
-    bool rewindCasting = false;
+    public bool rewindCasting = false;
 
     float chargeTime = 0f;
     float maxChargeTime = 0f;
