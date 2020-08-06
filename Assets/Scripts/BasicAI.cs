@@ -72,10 +72,11 @@ public class BasicAI : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Triggered");
-        if(other.tag == "FxTempraire")
+        if(other.tag == "Player")
         {
-            alive = false;
-            gameObject.transform.position = new Vector3(100, 100);
+            //alive = false;
+            //gameObject.transform.position = new Vector3(100, 100);
+            other.gameObject.GetComponent<PlayerStats>().KillPlayer();
         }
     }
 }
