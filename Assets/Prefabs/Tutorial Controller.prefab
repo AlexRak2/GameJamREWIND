@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialText:
-  - Hey, you better get moving before that plant gets ya!
+  - The dark plants kills on touch.
   - Jump over gaps with the awesome jump key.
   - Right mouseclick will rewind time and the plants will shrink and opening new
     paths.
@@ -53,7 +53,8 @@ MonoBehaviour:
     if they see you rewinding time.
   - Shoot down the enemy by firing a fireball at them with the left mouse button.
     Hold to chaaaarge!
-  - 'Kepp in mind, enemies will eventually come back to life if you rewind for too
+  - 'Keep in mind, enemies will eventually come back to life if you rewind for too
     long. '
+  - Use the leafs to lift you up higher.
   textBox: {fileID: 0}
   displayTime: 5

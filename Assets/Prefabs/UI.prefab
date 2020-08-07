@@ -383,6 +383,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelText: {fileID: 1751492534}
   levelString:
-  - Level 0 - Tutorial
-  - Level 1 - Prototype
+  - Level 1 - Tutorial
+  - Level 2 - TBA
   displayTime: 0
