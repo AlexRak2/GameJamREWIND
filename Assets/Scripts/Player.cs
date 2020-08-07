@@ -70,7 +70,10 @@ public class Player : MonoBehaviour
         }
         else
         {
-            //transform.position = transform.position;
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                storedForce = (transform.up + (new Vector3(0f,1f,0f) * jumpSpeed));
+            }
         }
 
     }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour
 {
@@ -30,6 +31,8 @@ public class Door : MonoBehaviour
             if (amountKeys >= requiredKeys)
             {
                 print("Level Done");
+                int level = SceneManager.GetActiveScene().buildIndex;
+                SceneManager.LoadScene(level + 1);
             }
         }
     }
