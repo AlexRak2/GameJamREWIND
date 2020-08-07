@@ -13,8 +13,11 @@ public class PlayerStats : MonoBehaviour
     public float MaxMana = 20;
     public float currentMana;
 
+    bool alive = true;
+
     [SerializeField] int keys;
     [SerializeField] TextMeshProUGUI keyText;
+    [SerializeField] GameObject gameOverScreen;
     Door exit;
 
 
@@ -46,7 +49,15 @@ public class PlayerStats : MonoBehaviour
 
     public void KillPlayer()
     {
-        SceneManager.LoadScene(0);
+        gameOverScreen.SetActive(true);
+        GetComponent<Player>().Freeze(true);
+        Invoke("ReloadLevel", 2f);
+    }
+
+    private void ReloadLevel()
+    {
+        int level = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(level);
     }
 
     public void AddKey()
