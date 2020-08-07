@@ -5,15 +5,21 @@ using UnityEngine;
 public class BasicAI : MonoBehaviour
 {
     public Spells spells;
+    [Range(0,10)]
     public float smallRange;
+    [Range(0, 15)]
     public float rewindRange;
-    public float currentRange;
+    float currentRange;
+    [Range(0, 15)]
     public float normalSpeed;
+    [Range(0, 15)]
     public float rewindSpeed;
-    public float currentSpeed;
+    float currentSpeed;
+    [Range(0, 6)]
     public float respawnTime;
-    public float timer;
+    float timer;
     public bool alive;
+    bool chargingStarted = false;
 
     public GameObject player;
     private Vector3 oldPos;
@@ -24,11 +30,15 @@ public class BasicAI : MonoBehaviour
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player");
         spells = player.GetComponent<Spells>();
         oldPos = transform.position;
+        audioSource.loop = true;
+        audioSource.clip = enemySFX[Random.Range(0, 1)];
+        audioSource.Play();
     }
-    // Update is called once per frame
+
     void Update()
     {
         if(spells.rewindCasting)
@@ -57,10 +67,24 @@ public class BasicAI : MonoBehaviour
 
         if (Vector3.Distance(player.transform.position, transform.position) < currentRange && alive)
         {
+            if (!chargingStarted)
+            {
+                chargingStarted = true;
+                audioSource.Stop();
+                audioSource.clip = enemySFX[Random.Range(0, 1)]; // replace with charging sound.
+                audioSource.Play();
+            }
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, currentSpeed * Time.deltaTime);
         }
         else if (alive)
         {
+            if (chargingStarted)
+            {
+                audioSource.Stop();
+                audioSource.clip = enemySFX[Random.Range(0, 1)];
+                audioSource.Play();
+            }
+            chargingStarted = false;
             transform.position = Vector3.MoveTowards(transform.position, oldPos, currentSpeed * Time.deltaTime);
         }
         else
@@ -84,7 +108,6 @@ public class BasicAI : MonoBehaviour
     {
         if(other.tag == "Player" && alive)
         {
-            //alive = false;
             other.gameObject.GetComponent<PlayerStats>().KillPlayer();
         }
     }

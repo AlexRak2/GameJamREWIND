@@ -12,15 +12,24 @@ public class CFX_AutoDestructShuriken : MonoBehaviour
 {
 	// If true, deactivate the object instead of destroying it
 	public bool OnlyDeactivate;
-	
-	void OnEnable()
+	[SerializeField] AudioClip audioClip;
+	AudioSource audioSource;
+
+
+	void Awake()
+	{
+		audioSource = GetComponent<AudioSource>();
+	}
+
+		void OnEnable()
 	{
 		StartCoroutine("CheckIfAlive");
+		audioSource.PlayOneShot(audioClip);
 	}
 	
 	IEnumerator CheckIfAlive ()
 	{
-		ParticleSystem ps = this.GetComponent<ParticleSystem>();
+		ParticleSystem ps = GetComponent<ParticleSystem>();
 		
 		while(true && ps != null)
 		{
@@ -32,11 +41,11 @@ public class CFX_AutoDestructShuriken : MonoBehaviour
 					#if UNITY_3_5
 						this.gameObject.SetActiveRecursively(false);
 					#else
-						this.gameObject.SetActive(false);
+						gameObject.SetActive(false);
 					#endif
 				}
 				else
-					GameObject.Destroy(this.gameObject);
+					Destroy(gameObject);
 				break;
 			}
 		}

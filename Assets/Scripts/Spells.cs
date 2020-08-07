@@ -30,6 +30,7 @@ public class Spells : MonoBehaviour
     [SerializeField] AudioSource spellAudioSource;
     [SerializeField] AudioClip fireChannelSFX;
     [SerializeField] AudioClip fireCastSFX;
+    [SerializeField] AudioClip fireLargeCastSFX;
     [SerializeField] AudioClip rewindChannelSFX;
 
 

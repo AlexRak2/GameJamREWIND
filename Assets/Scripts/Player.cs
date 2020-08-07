@@ -94,7 +94,10 @@ public class Player : MonoBehaviour
         else 
         {
             animationController.SetBool("IsWalking", false);
-            faceMouse.FaceDir(true);
+            if (!frozen)
+            {
+                faceMouse.FaceDir(true);
+            }
         }
 
         if (startJump)

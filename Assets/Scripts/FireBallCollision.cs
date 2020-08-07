@@ -8,7 +8,6 @@ public class FireBallCollision : MonoBehaviour
     ParticleSystem PSystem;
     List<ParticleCollisionEvent> collisionEvents = new List<ParticleCollisionEvent>();
 
-
     void Start()
     {
         PSystem = GetComponent<ParticleSystem>();
@@ -24,7 +23,6 @@ public class FireBallCollision : MonoBehaviour
 
         int collNum = PSystem.GetSafeCollisionEventSize();
         PSystem.GetCollisionEvents(other, collisionEvents);
-        //print("test");
         Instantiate(fireBallHit, collisionEvents[collNum - 1].intersection, Quaternion.identity);
         Destroy(this.gameObject, 0.06f);
 

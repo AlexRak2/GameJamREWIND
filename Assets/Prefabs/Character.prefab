@@ -590,6 +590,7 @@ MonoBehaviour:
   spellAudioSource: {fileID: 4769421885593827341}
   fireChannelSFX: {fileID: 0}
   fireCastSFX: {fileID: 8300000, guid: 8c5b7d95017c9d9428c73d0415feaf56, type: 3}
+  fireLargeCastSFX: {fileID: 0}
   rewindChannelSFX: {fileID: 0}
   rewindCasting: 0
   postProcessVolume: {fileID: 0}

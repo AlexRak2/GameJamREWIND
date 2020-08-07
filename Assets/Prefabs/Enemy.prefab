@@ -113,14 +113,14 @@ MonoBehaviour:
   spells: {fileID: 0}
   smallRange: 4
   rewindRange: 8
-  currentRange: 0
   normalSpeed: 2
   rewindSpeed: 6
-  currentSpeed: 0
   respawnTime: 3
-  timer: 0
   alive: 1
   player: {fileID: 0}
+  enemySFX:
+  - {fileID: 8300000, guid: 448643e5428a68e4c89f9b41c58d2ab2, type: 3}
+  - {fileID: 8300000, guid: 43f4c383a0cd26a4fbcc6870b25a6fe1, type: 3}
 --- !u!82 &5613576242611529502
 AudioSource:
   m_ObjectHideFlags: 0
@@ -135,7 +135,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -177,7 +177,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.779
       inSlope: 0
       outSlope: 0
       tangentMode: 0
