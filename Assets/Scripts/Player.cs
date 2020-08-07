@@ -96,7 +96,7 @@ public class Player : MonoBehaviour
             animationController.SetBool("IsWalking", false);
             if (!frozen)
             {
-                faceMouse.FaceDir(true);
+                //faceMouse.FaceDir(true);
             }
         }
 
@@ -184,7 +184,7 @@ public class Player : MonoBehaviour
         {
             if ((currentDir > 0 && dirAtJump < 0) || (currentDir < 0 && dirAtJump > 0) || (dirAtJump <= 0.1f && dirAtJump >= -0.1f))
             {
-                activeSpeed = speed * .25f;
+                activeSpeed = speed * .75f;
             }
         }
 
