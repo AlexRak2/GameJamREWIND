@@ -13,11 +13,19 @@ public class Key : MonoBehaviour
     [SerializeField] float minHeight = 1.2f;
     bool movingUp = true;
 
+    [SerializeField] ParticleSystem ParticleAwake;
+    [SerializeField] ParticleSystem PickUp;
+
+    bool isAlive;
+
     // Start is called before the first frame update
     void Start()
     {
+        isAlive = true;
+        ParticleAwake.Play();
         maxHeight = maxHeight + transform.position.y;
         minHeight = minHeight + transform.position.y;
+
     }
 
     // Update is called once per frame
@@ -67,6 +75,8 @@ public class Key : MonoBehaviour
         if (other.isTrigger && other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<PlayerStats>().AddKey();
+            ParticleAwake.Stop();
+            PickUp.Play();
             Destroy(gameObject);
         }
     }
