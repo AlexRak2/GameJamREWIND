@@ -20,10 +20,15 @@ public class Player : MonoBehaviour
     
     Vector2 movement;
     Rigidbody rb;
+    Spells spells;
+    bool frozen = false;
+    Vector3 storedForce;
+
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        spells = GetComponent<Spells>();
     }
 
     void Start()
@@ -31,15 +36,42 @@ public class Player : MonoBehaviour
         
     }
 
+    public void Freeze(bool freeze)
+    {
+        if (freeze)
+        {
+            frozen = true;
+            movement = new Vector2(0f, 0f);
+            storedForce = rb.velocity;
+            print(storedForce);
+            rb.velocity = new Vector3(0f, 0f, 0f);
+            rb.useGravity = false;
+        }
+        else
+        {
+            frozen = false;
+            rb.velocity = storedForce;
+            rb.useGravity = true;
+        }
+    }
+
     void Update()
     {
-        movement = new Vector2(Input.GetAxis("Horizontal"), 0f);
-
-        if (Input.GetKeyDown(KeyCode.Space) && grounded && !startJump)
+        if (!frozen)
         {
-            dirAtJump = Input.GetAxis("Horizontal");
-            startJump = true;
+            movement = new Vector2(Input.GetAxis("Horizontal"), 0f);
+
+            if (Input.GetKeyDown(KeyCode.Space) && grounded && !startJump)
+            {
+                dirAtJump = Input.GetAxis("Horizontal");
+                startJump = true;
+            }
         }
+        else
+        {
+            //transform.position = transform.position;
+        }
+
     }
 
     private void FixedUpdate()
