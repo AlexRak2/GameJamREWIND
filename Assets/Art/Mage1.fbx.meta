@@ -1,11 +1,8 @@
 fileFormatVersion: 2
-guid: 4d929dafba5ba8a4ea2ba22c3e0475b3
+guid: 66cf93dc2ae57d14e9bd8a0c5f3262b5
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable:
-  - first:
-      74: -8494874179560325277
-    second: EndAttack
   - first:
       74: -7979601254920856778
     second: Cylinder.003|F
@@ -13,20 +10,11 @@ ModelImporter:
       74: -4535358446467722674
     second: Cylinder.003|Idle
   - first:
-      74: 4877446116508107217
-    second: Armature|CastAttack
-  - first:
-      74: 1232455575180550562
-    second: Armature|EndAttack
-  - first:
       74: 2707143346007764129
     second: Armature|F
   - first:
       74: -5025487861805838091
     second: Armature|Fall
-  - first:
-      74: -5610665977939137746
-    second: Armature|HitGround
   - first:
       74: -8945691123924629249
     second: Armature|Idle
