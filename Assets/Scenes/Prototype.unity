@@ -2382,6 +2382,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 198314808138402406, guid: 6a7e8f48f7432164990eb1b289385198, type: 3}
+      propertyPath: LightsModule.ratio
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198601254862564962, guid: 6a7e8f48f7432164990eb1b289385198, type: 3}
+      propertyPath: LightsModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198601254862564962, guid: 6a7e8f48f7432164990eb1b289385198, type: 3}
+      propertyPath: LightsModule.light
+      value: 
+      objectReference: {fileID: 7860571517514577630, guid: d03f893f28dcaaa4e84e447eed00b603, type: 3}
+    - target: {fileID: 198601254862564962, guid: 6a7e8f48f7432164990eb1b289385198, type: 3}
+      propertyPath: LightsModule.ratio
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198601255195298084, guid: 6a7e8f48f7432164990eb1b289385198, type: 3}
+      propertyPath: LightsModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198601255195298084, guid: 6a7e8f48f7432164990eb1b289385198, type: 3}
+      propertyPath: LightsModule.ratio
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 787730346358215401, guid: 6a7e8f48f7432164990eb1b289385198, type: 3}
       propertyPath: m_Name
       value: Key
