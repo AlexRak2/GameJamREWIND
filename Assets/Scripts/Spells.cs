@@ -25,6 +25,8 @@ public class Spells : MonoBehaviour
     [SerializeField] float rewindChargeTime = 2f;
 
     [SerializeField] List<PlantScaler> plants = new List<PlantScaler>();
+    [SerializeField] List<Key> keys = new List<Key>();
+
 
     bool fireCasting = false;
     public bool rewindCasting = false;
@@ -33,13 +35,12 @@ public class Spells : MonoBehaviour
     float maxChargeTime = 0f;
     float chargeValue = 0f;
     [SerializeField] Volume postProcessVolume;
-    Bloom bloom;
     ColorAdjustments colorAdjust;
-    float bwAmount = 0f;
 
     void Start()
     {
         plants.AddRange(FindObjectsOfType<PlantScaler>());
+        keys.AddRange(FindObjectsOfType<Key>());
         postProcessVolume.profile.TryGet(out colorAdjust);
 
     }
@@ -113,6 +114,10 @@ public class Spells : MonoBehaviour
                     plant.SetRewind(true);
 
                 }
+                foreach (Key key in keys)
+                {
+                    key.Flip();
+                }
                 GetComponent<Player>().Freeze(true);
             }
             colorAdjust.saturation.Override(Mathf.Lerp(0f, -100f, chargeTime));
@@ -129,9 +134,14 @@ public class Spells : MonoBehaviour
             foreach (PlantScaler plant in plants)
             {
                 plant.SetRewind(false);
-                GetComponent<Player>().Freeze(false);
-
             }
+            foreach (Key key in keys)
+            {
+                key.Flip();
+            }
+
+            GetComponent<Player>().Freeze(false);
+
             colorAdjust.saturation.Override(0f);
             //print("Rewinded for a value of: " + chargeValue + "!");
             spellText.text = "";

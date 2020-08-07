@@ -43,7 +43,6 @@ public class Player : MonoBehaviour
             frozen = true;
             movement = new Vector2(0f, 0f);
             storedForce = rb.velocity;
-            print(storedForce);
             rb.velocity = new Vector3(0f, 0f, 0f);
             rb.useGravity = false;
         }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
+    [SerializeField] int requiredKeys = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +15,22 @@ public class Door : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public int GetReqKeys()
+    {
+        return requiredKeys;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.isTrigger && other.gameObject.tag == "Player")
+        {
+            int amountKeys = other.gameObject.GetComponent<PlayerStats>().GetKeys();
+            if (amountKeys >= requiredKeys)
+            {
+                print("Level Done");
+            }
+        }
     }
 }
