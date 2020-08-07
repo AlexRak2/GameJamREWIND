@@ -51,13 +51,18 @@ public class BasicAI : MonoBehaviour
             }
         }
 
-        if(Vector3.Distance(player.transform.position, transform.position) < currentRange)
+        if (Vector3.Distance(player.transform.position, transform.position) < currentRange && alive)
         {
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, currentSpeed * Time.deltaTime);
         }
-        else
+        else if (alive)
         {
             transform.position = Vector3.MoveTowards(transform.position, oldPos, currentSpeed * Time.deltaTime);
+        }
+        else
+        {
+            // transform.rotation = Vector3.RotateTowards(new Vector3(0,0,0), new Vector3(0, 90, 0), 1);
+            // Play death animation and turn of collider?
         }
     }
 
@@ -69,13 +74,13 @@ public class BasicAI : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, rewindRange);
     }
 
+
+
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Triggered");
-        if(other.tag == "Player")
+        if(other.tag == "Player" && alive)
         {
             //alive = false;
-            //gameObject.transform.position = new Vector3(100, 100);
             other.gameObject.GetComponent<PlayerStats>().KillPlayer();
         }
     }

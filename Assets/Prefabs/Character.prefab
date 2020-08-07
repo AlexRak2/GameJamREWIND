@@ -1020,6 +1020,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mage (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4d929dafba5ba8a4ea2ba22c3e0475b3, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3196138216412401344, guid: 4d929dafba5ba8a4ea2ba22c3e0475b3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 89.98021

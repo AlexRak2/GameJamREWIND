@@ -90,7 +90,7 @@ public class Spells : MonoBehaviour
                     pfbc.startSize = chargeValue * 2;
                 }
 
-                print("Fireball fired with value of: " + chargeValue + "!");
+                //print("Fireball fired with value of: " + chargeValue + "!");
 
 
             spellText.text = "";

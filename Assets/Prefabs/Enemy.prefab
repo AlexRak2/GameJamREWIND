@@ -91,7 +91,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 138675897535895412}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5000001
   m_Height: 2
@@ -116,7 +116,7 @@ MonoBehaviour:
   normalSpeed: 2
   rewindSpeed: 6
   currentSpeed: 0
-  respawnTime: 4
+  respawnTime: 3
   timer: 0
   alive: 1
   player: {fileID: 0}
