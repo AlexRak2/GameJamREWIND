@@ -187,6 +187,9 @@ MonoBehaviour:
   endScale: 4
   rewinding: 0
   reachedEnd: 0
+  growing:
+  - {fileID: 8300000, guid: 50d2cb08716b07242970330429a832ab, type: 3}
+  - {fileID: 8300000, guid: 66199c5af6b77d64895daf66326665e2, type: 3}
 --- !u!82 &7393011712295475542
 AudioSource:
   m_ObjectHideFlags: 0
@@ -198,10 +201,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -243,7 +246,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.805
       inSlope: 0
       outSlope: 0
       tangentMode: 0

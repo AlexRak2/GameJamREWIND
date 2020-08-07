@@ -13,7 +13,7 @@ public class PlantScaler : MonoBehaviour
     float tarScale = 2f;
     [SerializeField] bool rewinding = false;
     [SerializeField] bool reachedEnd = false;
-    [SerializeField] AudioClip growing;
+    [SerializeField] AudioClip[] growing;
 
     AudioSource audioSource;
 
@@ -30,6 +30,7 @@ public class PlantScaler : MonoBehaviour
         if ((curScale.x >= tarScale && !rewinding) || (curScale.x <= tarScale && rewinding))
         {
             reachedEnd = true;
+            audioSource.Stop();
         }
 
         if (!reachedEnd)
@@ -41,6 +42,8 @@ public class PlantScaler : MonoBehaviour
 
     private void UpdateTarget()
     {
+        audioSource.clip = growing[Random.Range(0,1)];
+        audioSource.Play();
         reachedEnd = false;
 
         if (rewinding)
