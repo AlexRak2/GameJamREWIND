@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     bool frozen = false;
     Vector3 storedForce;
 
+    [SerializeField] Animator animationController;
 
     private void Awake()
     {
@@ -80,11 +81,19 @@ public class Player : MonoBehaviour
         if (movement.x > 0.1f || movement.x < -0.1f)
         {
             MoveCharacter(movement);
+            animationController.SetBool("IsWalking", true);
+
+
+        }
+        else 
+        {
+            animationController.SetBool("IsWalking", false);
         }
 
         if (startJump)
         {
             startJump = false;
+            animationController.SetTrigger("IsJumping");
             JumpCharacter(new Vector3(0f, 1f, 0f));
         }
     }
