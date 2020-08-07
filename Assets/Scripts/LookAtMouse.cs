@@ -27,7 +27,7 @@ public class LookAtMouse : MonoBehaviour
         {
             angle = -angle +180f;
         }
-
+        print(angle);
         transform.localRotation = Quaternion.Euler(new Vector3(-angle, 0f, 0f));
     }
 }

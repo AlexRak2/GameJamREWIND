@@ -41,9 +41,13 @@ public class FaceMouse : MonoBehaviour
         if (left)
         {
             transform.localRotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
+            angle = 0f;
+
         }
         else
         {
+            angle = 180f;
+
             transform.localRotation = Quaternion.Euler(new Vector3(0f, 180f, 0f));
         }
     }
