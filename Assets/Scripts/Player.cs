@@ -24,11 +24,13 @@ public class Player : MonoBehaviour
     Spells spells;
     bool frozen = false;
     Vector3 storedForce;
+    FaceMouse faceMouse;
 
     [SerializeField] Animator animationController;
 
     private void Awake()
     {
+        faceMouse = GetComponentInChildren<FaceMouse>();
         rb = GetComponent<Rigidbody>();
         spells = GetComponent<Spells>();
     }
@@ -92,6 +94,7 @@ public class Player : MonoBehaviour
         else 
         {
             animationController.SetBool("IsWalking", false);
+            faceMouse.FaceDir(true);
         }
 
         if (startJump)
@@ -163,6 +166,16 @@ public class Player : MonoBehaviour
         {
             direction.x = 0;
         }
+
+        if (movement.x < 0)
+        {
+            faceMouse.FaceDir(false);
+        }
+        else
+        {
+            faceMouse.FaceDir(true);
+        }
+
 
         if (!grounded) // Slows down movement speed if changing directions mid air
         {

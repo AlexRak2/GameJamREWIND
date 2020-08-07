@@ -27,6 +27,11 @@ public class Spells : MonoBehaviour
     [SerializeField] List<PlantScaler> plants = new List<PlantScaler>();
     [SerializeField] List<Key> keys = new List<Key>();
 
+    [SerializeField] AudioSource spellAudioSource;
+    [SerializeField] AudioClip fireChannelSFX;
+    [SerializeField] AudioClip fireCastSFX;
+    [SerializeField] AudioClip rewindChannelSFX;
+
 
     bool fireCasting = false;
     public bool rewindCasting = false;
@@ -57,13 +62,21 @@ public class Spells : MonoBehaviour
         if (Input.GetKey(fireBallKey) && !rewindCasting)
         {
             //Perhaps make it so the mana bar shows how much itll consume
-            
+            if (!fireCasting)
+            {
+                spellAudioSource.Stop();
+                spellAudioSource.loop = true;
+                //spellAudioSource.clip = fireChannelSFX;
+                //spellAudioSource.Play();
+            }
             fireCasting = true;
             spellText.text = "Fire";
             maxChargeTime = fireBallChargeTime;
             chargeTime += Time.deltaTime;
             chargeValue = chargeTime / maxChargeTime;
             spellImageMask.fillAmount = chargeValue;
+
+
         }
 
         if (Input.GetKeyUp(fireBallKey) && fireCasting && playerStats.currentMana >0)
@@ -90,8 +103,12 @@ public class Spells : MonoBehaviour
                     pfbc.startSize = chargeValue * 2;
                 }
 
-                //print("Fireball fired with value of: " + chargeValue + "!");
+            //print("Fireball fired with value of: " + chargeValue + "!");
 
+            spellAudioSource.loop = false;
+            spellAudioSource.Stop();
+            spellAudioSource.clip = fireCastSFX;
+            spellAudioSource.Play();
 
             spellText.text = "";
             fireCasting = false;
@@ -118,6 +135,10 @@ public class Spells : MonoBehaviour
                 {
                     key.Flip();
                 }
+                spellAudioSource.Stop();
+                spellAudioSource.loop = true;
+                spellAudioSource.clip = rewindChannelSFX;
+                spellAudioSource.Play();
                 GetComponent<Player>().Freeze(true);
             }
             colorAdjust.saturation.Override(Mathf.Lerp(0f, -100f, chargeTime));
@@ -141,6 +162,9 @@ public class Spells : MonoBehaviour
             }
 
             GetComponent<Player>().Freeze(false);
+
+            spellAudioSource.loop = false;
+            spellAudioSource.Stop();
 
             colorAdjust.saturation.Override(0f);
             //print("Rewinded for a value of: " + chargeValue + "!");

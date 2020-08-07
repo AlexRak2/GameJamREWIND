@@ -18,6 +18,10 @@ public class BasicAI : MonoBehaviour
     public GameObject player;
     private Vector3 oldPos;
 
+    [SerializeField] AudioClip[] enemySFX;
+    AudioSource audioSource;
+
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
