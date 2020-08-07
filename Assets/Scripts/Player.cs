@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Random = UnityEngine.Random;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -25,6 +26,8 @@ public class Player : MonoBehaviour
     Vector3 storedForce;
 
     [SerializeField] Animator animationController;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip[] audioClips;
 
     private void Awake()
     {
@@ -34,7 +37,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        
+        audioSource.GetComponent<AudioSource>();
     }
 
     public void Freeze(bool freeze)
@@ -192,5 +195,12 @@ public class Player : MonoBehaviour
         {
             grounded = false;
         }
+    }
+
+    public void OnAnimationEvent() 
+    {
+        int random = Random.Range(0, audioClips.Length);
+        audioSource.clip = audioClips[random];
+
     }
 }
