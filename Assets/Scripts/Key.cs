@@ -76,7 +76,8 @@ public class Key : MonoBehaviour
         {
             other.gameObject.GetComponent<PlayerStats>().AddKey();
             ParticleAwake.Stop();
-            PickUp.Play();
+            var Pickup = Instantiate(PickUp, transform.position, Quaternion.identity);
+            Pickup.transform.SetParent(GameObject.FindObjectOfType<Player>().transform);
             Destroy(gameObject);
         }
     }

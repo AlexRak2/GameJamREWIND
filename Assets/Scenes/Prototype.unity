@@ -2405,8 +2405,24 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 322144670, guid: 6a7e8f48f7432164990eb1b289385198, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317904087, guid: 6a7e8f48f7432164990eb1b289385198, type: 3}
+      propertyPath: PickUp
+      value: 
+      objectReference: {fileID: 5359994460376529751, guid: 15b81403912eea7478b09347ec57aab3, type: 3}
+    - target: {fileID: 1844191628213224, guid: 6a7e8f48f7432164990eb1b289385198, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 198314808138402406, guid: 6a7e8f48f7432164990eb1b289385198, type: 3}
       propertyPath: LightsModule.ratio
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198314808445070624, guid: 6a7e8f48f7432164990eb1b289385198, type: 3}
+      propertyPath: playOnAwake
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 198601254862564962, guid: 6a7e8f48f7432164990eb1b289385198, type: 3}
@@ -2421,12 +2437,20 @@ PrefabInstance:
       propertyPath: LightsModule.ratio
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 198601254862564962, guid: 6a7e8f48f7432164990eb1b289385198, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 198601255195298084, guid: 6a7e8f48f7432164990eb1b289385198, type: 3}
       propertyPath: LightsModule.enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 198601255195298084, guid: 6a7e8f48f7432164990eb1b289385198, type: 3}
       propertyPath: LightsModule.ratio
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198858562774195090, guid: 6a7e8f48f7432164990eb1b289385198, type: 3}
+      propertyPath: playOnAwake
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 787730346358215401, guid: 6a7e8f48f7432164990eb1b289385198, type: 3}
@@ -2439,7 +2463,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6400926605321775351, guid: 6a7e8f48f7432164990eb1b289385198, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.51
+      value: 2.44
       objectReference: {fileID: 0}
     - target: {fileID: 6400926605321775351, guid: 6a7e8f48f7432164990eb1b289385198, type: 3}
       propertyPath: m_LocalPosition.z
