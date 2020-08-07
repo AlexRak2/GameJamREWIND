@@ -13,11 +13,13 @@ public class PlantScaler : MonoBehaviour
     float tarScale = 2f;
     [SerializeField] bool rewinding = false;
     [SerializeField] bool reachedEnd = false;
+    [SerializeField] AudioClip growing;
 
+    AudioSource audioSource;
 
     void Start()
     {
-
+        audioSource = GetComponent<AudioSource>();
         UpdateTarget();
     }
 
