@@ -7,7 +7,6 @@ public class FireBallCollision : MonoBehaviour
     [SerializeField] ParticleSystem fireBallHit;
     ParticleSystem PSystem;
     List<ParticleCollisionEvent> collisionEvents = new List<ParticleCollisionEvent>();
-    ParticleCollisionEvent[] test;
 
 
     void Start()
@@ -25,14 +24,13 @@ public class FireBallCollision : MonoBehaviour
 
         int collNum = PSystem.GetSafeCollisionEventSize();
         PSystem.GetCollisionEvents(other, collisionEvents);
-
+        //print("test");
         Instantiate(fireBallHit, collisionEvents[collNum - 1].intersection, Quaternion.identity);
+        Destroy(this.gameObject, 0.06f);
+
         if (other.gameObject.GetComponent<BasicAI>() != null)
         {
             other.gameObject.GetComponent<BasicAI>().alive = false;
         }
-
-        Destroy(this.gameObject, 0.06f);
-
     }
 }

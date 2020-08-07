@@ -22,7 +22,7 @@ public class AnimationEvent : MonoBehaviour
     public void OnAnimationEvent()
     {
         int random = Random.Range(0, audioClips.Length);
-        print(audioClips[random]);
+        //print(audioClips[random]);
         audioSource.PlayOneShot(audioClips[random]);
 
     }

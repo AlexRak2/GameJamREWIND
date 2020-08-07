@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class Key : MonoBehaviour
 {
@@ -76,8 +77,9 @@ public class Key : MonoBehaviour
         {
             other.gameObject.GetComponent<PlayerStats>().AddKey();
             ParticleAwake.Stop();
-            var Pickup = Instantiate(PickUp, transform.position, Quaternion.identity);
-            Pickup.transform.SetParent(GameObject.FindObjectOfType<Player>().transform);
+            Transform target = FindObjectOfType<Player>().transform;
+            var pickup = Instantiate(PickUp, target.position, Quaternion.identity, target);
+            pickup.transform.localPosition = new Vector3(1.5f, 2.9f, 0f);
             Destroy(gameObject);
         }
     }
