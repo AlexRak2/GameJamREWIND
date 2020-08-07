@@ -13,7 +13,7 @@ public class ShowLevelTitle : MonoBehaviour
     void Start()
     {
         int level = SceneManager.GetActiveScene().buildIndex;
-        levelText.text = levelString[level];
+        levelText.text = levelString[level-1];
         Invoke("HideLevelText", 7f);
     }
 
