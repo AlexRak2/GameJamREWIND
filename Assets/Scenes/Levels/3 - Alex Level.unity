@@ -9208,14 +9208,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1751492534, guid: 5e867857b51496a4197d1231c5fa6b98, type: 3}
-      propertyPath: m_text
-      value: Level 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2272367510270977243, guid: 5e867857b51496a4197d1231c5fa6b98, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2272367510417832265, guid: 5e867857b51496a4197d1231c5fa6b98, type: 3}
       propertyPath: m_Name
       value: UI
@@ -9482,14 +9474,6 @@ PrefabInstance:
     - target: {fileID: 6276401526786041473, guid: 0499b17fd0538ec4e8884e126ceeeb2d, type: 3}
       propertyPath: m_Name
       value: PauseMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 6276401526786041473, guid: 0499b17fd0538ec4e8884e126ceeeb2d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6400253788813057915, guid: 0499b17fd0538ec4e8884e126ceeeb2d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0499b17fd0538ec4e8884e126ceeeb2d, type: 3}

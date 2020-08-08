@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/2 - Time Jump.unity
     guid: 15988e4d570bba94287368638e5392fa
   - enabled: 1
+    path: Assets/Scenes/Levels/3 - Alex Level.unity
+    guid: 36b0686d491c3454695575ca598e796d
+  - enabled: 1
     path: Assets/Scenes/Levels/Victory.unity
     guid: cf5ce035189d0664f93dcffcb6d65cd1
   m_configObjects: {}
