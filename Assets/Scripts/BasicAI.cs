@@ -24,12 +24,15 @@ public class BasicAI : MonoBehaviour
     public GameObject player;
     private Vector3 oldPos;
 
+    [SerializeField] GameObject body;
     [SerializeField] AudioClip[] enemySFX;
     AudioSource audioSource;
+    Animator animator;
 
 
     private void Start()
     {
+        animator = GetComponentInChildren<Animator>();
         audioSource = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player");
         spells = player.GetComponent<Spells>();
@@ -60,7 +63,8 @@ public class BasicAI : MonoBehaviour
             if(timer > respawnTime)
             {
                 alive = true;
-                transform.position = oldPos;
+                animator.SetBool("dead", false);
+                //transform.position = oldPos;
                 timer = 0;
             }
         }
@@ -69,28 +73,40 @@ public class BasicAI : MonoBehaviour
         {
             if (!chargingStarted)
             {
+                animator.SetBool("Charging", true);
+
                 chargingStarted = true;
                 audioSource.Stop();
                 audioSource.clip = enemySFX[Random.Range(0, 1)]; // replace with charging sound.
                 audioSource.Play();
             }
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, currentSpeed * Time.deltaTime);
+            body.transform.LookAt(player.transform.position);
+
         }
         else if (alive)
         {
+            animator.SetBool("Charging", true);
             if (chargingStarted)
             {
                 audioSource.Stop();
                 audioSource.clip = enemySFX[Random.Range(0, 1)];
                 audioSource.Play();
+
             }
             chargingStarted = false;
             transform.position = Vector3.MoveTowards(transform.position, oldPos, currentSpeed * Time.deltaTime);
+            body.transform.LookAt(oldPos);
+            body.transform.Rotate(3f, 0f, 0f, Space.Self);
+            if (Vector3.Distance(transform.position, oldPos) <= 0.5f)
+            {
+                animator.SetBool("Charging", false);
+            }
+
         }
         else
         {
-            // transform.rotation = Vector3.RotateTowards(new Vector3(0,0,0), new Vector3(0, 90, 0), 1);
-            // Play death animation and turn of collider?
+            animator.SetBool("dead", true);
         }
     }
 
