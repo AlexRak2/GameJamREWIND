@@ -21,7 +21,7 @@ public class ShowLevelTitle : MonoBehaviour
         loadOverlay.SetActive(true);
         blackImage = loadOverlay.GetComponent< UnityEngine.UI.Image> ();
         int level = SceneManager.GetActiveScene().buildIndex;
-        levelText.text = levelString[level-1];
+        levelText.text = levelString[level-2];
         Invoke("HideLevelText", displayTime);
         
     }
