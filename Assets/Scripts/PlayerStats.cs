@@ -14,6 +14,7 @@ public class PlayerStats : MonoBehaviour
     public float currentMana;
 
     bool alive = true;
+    bool levelDone = false;
 
     [SerializeField] int keys;
     [SerializeField] TextMeshProUGUI keyText;
@@ -53,11 +54,20 @@ public class PlayerStats : MonoBehaviour
         currentMana -= used; 
     }
 
+    public void LevelCompleted()
+    {
+        levelDone = true;
+    }
+
     public void KillPlayer()
     {
-        gameOverScreen.SetActive(true);
-        GetComponent<Player>().Freeze(true);
-        Invoke("ReloadLevel", 2f);
+        if (!levelDone)
+        {
+            gameOverScreen.SetActive(true);
+            GetComponent<Player>().Freeze(true);
+            Invoke("ReloadLevel", 2f);
+        }
+
     }
 
     private void ReloadLevel()

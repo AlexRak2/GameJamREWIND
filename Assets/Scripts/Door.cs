@@ -42,6 +42,7 @@ public class Door : MonoBehaviour
 
     IEnumerator LoadNextLevel()
     {
+        FindObjectOfType<PlayerStats>().LevelCompleted();
         print("Level Done");
         audioSource.PlayOneShot(doorOpen);
         FindObjectOfType<ShowLevelTitle>().StartFadeOut();

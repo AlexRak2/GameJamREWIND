@@ -464,6 +464,8 @@ MonoBehaviour:
   - Level 3 - The Forgotten Mage
   - Level 4 - Unstoppable Lair
   - Level 5 - A Swarm
+  - Level 6 - The Pawns
+  - Level 7 - The Way Up
   displayTime: 7
   loadOverlay: {fileID: 75463350}
   fadeAmnt: 0.3

@@ -27,6 +27,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/5 - A Swarm.unity
     guid: 5b1963cf88633554da8e899dc8fd9ea2
   - enabled: 1
+    path: Assets/Scenes/Levels/6 - The Pawns.unity
+    guid: 1528fa6ff9a4f4b48a276adb552252cb
+  - enabled: 1
+    path: Assets/Scenes/Levels/7 - The Way Up.unity
+    guid: 5bb3e95d0ada2134eba17f679acd0d4b
+  - enabled: 1
     path: Assets/Scenes/Levels/Victory.unity
     guid: cf5ce035189d0664f93dcffcb6d65cd1
   m_configObjects: {}
