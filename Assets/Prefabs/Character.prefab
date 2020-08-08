@@ -1032,6 +1032,7 @@ MonoBehaviour:
   keys: 0
   keyText: {fileID: 349933826}
   gameOverScreen: {fileID: 2101350456}
+  keyClip: {fileID: 8300000, guid: 871a670bcf18c584687d6ae1526d9c35, type: 3}
 --- !u!114 &8932432543217983261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1057,7 +1058,7 @@ MonoBehaviour:
   plants: []
   keys: []
   spellAudioSource: {fileID: 4769421885593827341}
-  fireChannelSFX: {fileID: 0}
+  fireChannelSFX: {fileID: 8300000, guid: 66f1ab7998ed9674095a6d0673e8e28a, type: 3}
   fireCastSFX: {fileID: 8300000, guid: 8c5b7d95017c9d9428c73d0415feaf56, type: 3}
   fireLargeCastSFX: {fileID: 0}
   rewindChannelSFX: {fileID: 0}

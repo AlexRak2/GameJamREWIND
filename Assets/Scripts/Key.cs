@@ -17,12 +17,13 @@ public class Key : MonoBehaviour
     [SerializeField] ParticleSystem ParticleAwake;
     [SerializeField] ParticleSystem PickUp;
 
-    bool isAlive;
+
+    //bool isAlive;
 
     // Start is called before the first frame update
     void Start()
     {
-        isAlive = true;
+        //isAlive = true;
         ParticleAwake.Play();
         maxHeight = maxHeight + transform.position.y;
         minHeight = minHeight + transform.position.y;
@@ -75,6 +76,7 @@ public class Key : MonoBehaviour
     {
         if (other.isTrigger && other.gameObject.tag == "Player")
         {
+
             other.gameObject.GetComponent<PlayerStats>().AddKey();
             ParticleAwake.Stop();
             Transform target = FindObjectOfType<Player>().transform;

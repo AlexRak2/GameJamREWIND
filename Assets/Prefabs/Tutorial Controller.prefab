@@ -57,4 +57,4 @@ MonoBehaviour:
     long. '
   - Use the leafs to lift you up higher.
   textBox: {fileID: 0}
-  displayTime: 5
+  displayTime: 7

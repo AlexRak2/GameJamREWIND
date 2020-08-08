@@ -126,14 +126,14 @@ public class Player : MonoBehaviour
             RaycastHit hitFall;
             if (Physics.Raycast(bot.position, Vector3.down, out hitFall)) ;
             {
-                print(hitFall.distance);
+                //print(hitFall.distance);
 
             if (hitFall.distance < startFallDist && fallLimit < 1) 
                 {
                     fallLimit++;
                     falling = false;
                     animationController.SetTrigger("IsFalling");
-                    print("falling`");
+                    //print("falling");
                     fallLimit = 0;
                     //play sound
 

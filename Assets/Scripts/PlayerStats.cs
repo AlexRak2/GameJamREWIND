@@ -19,11 +19,14 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] TextMeshProUGUI keyText;
     [SerializeField] GameObject gameOverScreen;
     Door exit;
+    [SerializeField] AudioClip keyClip;
 
+    AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         exit = FindObjectOfType<Door>();
         currentHealth = MaxHealth;
         currentMana = MaxMana;
@@ -65,6 +68,7 @@ public class PlayerStats : MonoBehaviour
 
     public void AddKey()
     {
+        audioSource.PlayOneShot(keyClip);
         keys++;
         SetKeyText();
 

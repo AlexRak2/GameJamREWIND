@@ -67,8 +67,8 @@ public class Spells : MonoBehaviour
             {
                 spellAudioSource.Stop();
                 spellAudioSource.loop = true;
-                //spellAudioSource.clip = fireChannelSFX;
-                //spellAudioSource.Play();
+                spellAudioSource.clip = fireChannelSFX;
+                spellAudioSource.Play();
             }
             fireCasting = true;
             spellText.text = "Fire";
