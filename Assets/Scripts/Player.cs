@@ -29,10 +29,15 @@ public class Player : MonoBehaviour
     Vector3 storedForce;
     FaceMouse faceMouse;
 
+    AudioSource audioSource;
+    [SerializeField] AudioClip jumpSFX;
+    [SerializeField] AudioClip landSFX;
+
     [SerializeField] Animator animationController;
     float fallLimit = 0;
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         faceMouse = GetComponentInChildren<FaceMouse>();
         rb = GetComponent<Rigidbody>();
         spells = GetComponent<Spells>();
@@ -105,6 +110,7 @@ public class Player : MonoBehaviour
 
         if (startJump)
         {
+            audioSource.PlayOneShot(jumpSFX);
             startJump = false;
             falling = true;
             animationController.ResetTrigger("IsFalling");
@@ -122,21 +128,21 @@ public class Player : MonoBehaviour
 
     private void CheckDistanceToFloor()
     {
-
-            RaycastHit hitFall;
-            if (Physics.Raycast(bot.position, Vector3.down, out hitFall)) ;
-            {
-                //print(hitFall.distance);
+        RaycastHit hitFall;
+        if (Physics.Raycast(bot.position, Vector3.down, out hitFall)) ;
+        {
+            //print(hitFall.distance);
 
             if (hitFall.distance < startFallDist && fallLimit < 1) 
-                {
-                    fallLimit++;
-                    falling = false;
-                    animationController.SetTrigger("IsFalling");
-                    //print("falling");
-                    fallLimit = 0;
-                    //play sound
-
+            {
+                fallLimit++;
+                falling = false;
+                animationController.SetTrigger("IsFalling");
+                print("falling");
+                fallLimit = 0;
+            }
+            else
+            {
             }
         }
     }
@@ -228,6 +234,16 @@ public class Player : MonoBehaviour
     void JumpCharacter(Vector3 direction)
     {
         rb.velocity = (transform.up + (direction * jumpSpeed));
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.layer == 8)
+        {
+            if (!grounded)
+            audioSource.PlayOneShot(landSFX,0.1f);
+
+        }
     }
 
     void OnCollisionStay(Collision other)

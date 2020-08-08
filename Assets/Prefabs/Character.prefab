@@ -1007,11 +1007,15 @@ MonoBehaviour:
   speed: 7
   jumpSpeed: 16
   wallSafeDis: 0.45
+  startFallDist: 1
+  fallTime: 0.5
   top: {fileID: 2662002703199727964}
   bot: {fileID: 4576536419102666524}
   grounded: 0
   closeRight: 0
   closeLeft: 0
+  jumpSFX: {fileID: 8300000, guid: a33461bbc831a864dae5430ef3cec077, type: 3}
+  landSFX: {fileID: 8300000, guid: bd323a9a630aa4740ba8fb332d948733, type: 3}
   animationController: {fileID: 1546792821}
 --- !u!114 &8191053894429118671
 MonoBehaviour:
