@@ -140,7 +140,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level 0 - Tutorial
+  m_text: Level 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -460,7 +460,8 @@ MonoBehaviour:
   levelText: {fileID: 1751492534}
   levelString:
   - Level 1 - Tutorial
-  - Level 2 - TBA
+  - Level 2 - Time Jump
+  - Level 3 - Alex Level
   displayTime: 7
   loadOverlay: {fileID: 75463350}
   fadeAmnt: 0.3

@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     [SerializeField] bool closeLeft = false;
     bool startJump = false;
     bool falling;
+    bool bonusJump = true;
     
     Vector2 movement;
     Rigidbody rb;
@@ -80,8 +81,9 @@ public class Player : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && bonusJump)
             {
+                bonusJump = false;
                 storedForce = (transform.up + (new Vector3(0f,1f,0f) * jumpSpeed));
             }
         }
@@ -250,6 +252,7 @@ public class Player : MonoBehaviour
         if (other.gameObject.layer == 8)
         {
             grounded = true;
+            bonusJump = true;
 
         }
     }
