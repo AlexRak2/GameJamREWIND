@@ -25,10 +25,22 @@ public class SceneManaging : MonoBehaviour
 
     public void PlayGame() 
     {
-        SceneManager.LoadScene(1);   
+        StartCoroutine(LoadNextLevel());
     }
 
-    public void DiscordRedirect() 
+    IEnumerator LoadNextLevel()
+    {
+        print("Level Done");
+        //audioSource.PlayOneShot(doorOpen);
+        //FindObjectOfType<ShowLevelTitle>().StartFadeOut();
+        yield return new WaitForSeconds(1.5f);
+        //audioSource.PlayOneShot(doorClose);
+        yield return new WaitForSeconds(3f);
+        int level = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(level + 1);
+
+    }
+        public void DiscordRedirect() 
     {
         Application.OpenURL(discordLink);
     }
