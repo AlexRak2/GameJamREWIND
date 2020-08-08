@@ -14,10 +14,18 @@ public class IntroDialogue : MonoBehaviour
 
     float EndIntro;
     int textIndex = 0;
+
+    //Type Writer 
+    public float delay = 0.1f;
+    public string fullText;
+    private string currentText = "";
+
+    float textLimit = 0;
     // Start is called before the first frame update
     void Start()
     {
         EndIntro = IntroText.Length * timerDialogue;
+        fullText = IntroText[textIndex];
     }
 
     // Update is called once per frame
@@ -27,9 +35,10 @@ public class IntroDialogue : MonoBehaviour
 
         if (timer < timerDialogue)
         {
-            if (textIndex <= IntroText.Length - 1) 
+            if (textIndex <= IntroText.Length - 1 && textLimit < 1) 
             {
-                dText.text = IntroText[textIndex];
+                StartCoroutine(ShowText());
+                textLimit++;
             }
             
         }
@@ -37,16 +46,30 @@ public class IntroDialogue : MonoBehaviour
         {
             if (textIndex <= IntroText.Length - 1)
             {
-                print(textIndex + " | " + IntroText.Length);
+                print("Next");
                 timerDialogue += 15;
                 textIndex++;
+                fullText = IntroText[textIndex];
+                textLimit = 0;
             }
         }
+
         if (EndIntro <= timer ) 
         {
             StartCoroutine(LoadNextLevel());
         }
     }
+
+    IEnumerator ShowText() 
+    {
+        for (int i = 0; i < fullText.Length; i++) 
+        {
+            currentText = fullText.Substring(0, i);
+            dText.text = currentText;
+            yield return new WaitForSeconds(delay);
+        }
+    }
+
     IEnumerator LoadNextLevel()
     {
         print("Level Done");
