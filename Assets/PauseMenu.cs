@@ -23,14 +23,12 @@ public class PauseMenu : MonoBehaviour
             Time.timeScale = 0;
             pauseMenu.SetActive(true);
             open = true;
-            print("Pause");
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && open)
         {
             Time.timeScale = 1;
             pauseMenu.SetActive(false);
             open = false;
-            print("resume");
         }
     }
 
