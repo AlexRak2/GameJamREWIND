@@ -461,7 +461,9 @@ MonoBehaviour:
   levelString:
   - Level 1 - Tutorial
   - Level 2 - Time Jump
-  - Level 3 - Alex Level
+  - Level 3 - The Forgotten Mage
+  - Level 4 - Unstoppable Lair
+  - Level 5 - A Swarm
   displayTime: 7
   loadOverlay: {fileID: 75463350}
   fadeAmnt: 0.3
