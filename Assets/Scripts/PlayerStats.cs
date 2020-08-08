@@ -32,7 +32,10 @@ public class PlayerStats : MonoBehaviour
 
     private void SetKeyText()
     {
-        keyText.text = "Keys: " + keys + " / " + exit.GetReqKeys();
+        if (keyText.gameObject.activeSelf)
+        {
+            keyText.text = "Keys: " + keys + " / " + exit.GetReqKeys();
+        }
     }
 
     // Update is called once per frame
