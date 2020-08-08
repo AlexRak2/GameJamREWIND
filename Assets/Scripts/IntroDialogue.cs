@@ -21,6 +21,8 @@ public class IntroDialogue : MonoBehaviour
     private string currentText = "";
 
     float textLimit = 0;
+
+    public bool isVictory;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,7 +58,11 @@ public class IntroDialogue : MonoBehaviour
 
         if (EndIntro <= timer ) 
         {
-            StartCoroutine(LoadNextLevel());
+            if (isVictory)
+            {
+                StartCoroutine(LoadMainMenu());
+            }
+            else { StartCoroutine(LoadNextLevel()); }
         }
     }
 
@@ -80,5 +86,16 @@ public class IntroDialogue : MonoBehaviour
         yield return new WaitForSeconds(3f);
         int level = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(level + 1);
+    }
+    IEnumerator LoadMainMenu()
+    {
+        print("Level Done");
+        //audioSource.PlayOneShot(doorOpen);
+        //FindObjectOfType<ShowLevelTitle>().StartFadeOut();
+        yield return new WaitForSeconds(1.5f);
+        //audioSource.PlayOneShot(doorClose);
+        yield return new WaitForSeconds(3f);
+        int level = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(0);
     }
 }
