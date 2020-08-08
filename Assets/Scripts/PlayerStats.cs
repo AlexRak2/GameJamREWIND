@@ -37,7 +37,7 @@ public class PlayerStats : MonoBehaviour
     {
         if (keyText.gameObject.activeSelf)
         {
-            keyText.text = "Keys: " + keys + " / " + exit.GetReqKeys();
+            keyText.text = ": " + keys + " / " + exit.GetReqKeys();
         }
     }
 
