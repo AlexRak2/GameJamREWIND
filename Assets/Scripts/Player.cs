@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] float speed = 1f;
     [SerializeField] float jumpSpeed = 1f;
     [SerializeField] float wallSafeDis = .45f;
+    [SerializeField] float startFallDist = 1f;
     [SerializeField] Transform top;
     [SerializeField] Transform bot;
 
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
     [SerializeField] bool closeRight = false;
     [SerializeField] bool closeLeft = false;
     bool startJump = false;
+    bool falling;
     
     Vector2 movement;
     Rigidbody rb;
@@ -103,8 +105,32 @@ public class Player : MonoBehaviour
         if (startJump)
         {
             startJump = false;
+            falling = false;
             animationController.SetTrigger("IsJumping");
             JumpCharacter(new Vector3(0f, 1f, 0f));
+            CheckDistanceToFloor();
+        }
+    }
+
+    private void CheckDistanceToFloor()
+    {
+        falling = true;
+
+        while (falling)
+        {
+            RaycastHit hitFall;
+            if (Physics.Raycast(bot.position, Vector3.down, out hitFall)) ;
+            {
+                print(hitFall.distance);
+                if (hitFall.distance < startFallDist) 
+                {
+                    falling = false;
+                    animationController.SetTrigger("isFalling");
+                    print("falling");
+                    //play sound
+
+                }
+            }
         }
     }
 
