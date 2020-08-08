@@ -32,9 +32,9 @@ RectTransform:
   m_Father: {fileID: 349933825}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 32.611}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -290.96832, y: -31.991333}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -50, y: 27.993}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &104024388
@@ -101,7 +101,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 349933824}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.0000047638}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 104024386}
@@ -110,8 +110,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -61, y: -60.5}
-  m_SizeDelta: {x: 240.4635, y: 64.98645}
+  m_AnchoredPosition: {x: -110.62, y: -53.997}
+  m_SizeDelta: {x: 141.23181, y: 77.99332}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &349933827
 CanvasRenderer:
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1183,7 +1183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 100
   currentHealth: 0
-  MaxMana: 20
+  MaxMana: 9999
   currentMana: 0
   keys: 0
   keyText: {fileID: 349933826}
