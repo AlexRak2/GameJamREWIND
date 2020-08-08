@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] float jumpSpeed = 1f;
     [SerializeField] float wallSafeDis = .45f;
     [SerializeField] float startFallDist = 1f;
+    [SerializeField] float fallTime = 0.5f;
     [SerializeField] Transform top;
     [SerializeField] Transform bot;
 
@@ -29,7 +30,7 @@ public class Player : MonoBehaviour
     FaceMouse faceMouse;
 
     [SerializeField] Animator animationController;
-
+    float fallLimit = 0;
     private void Awake()
     {
         faceMouse = GetComponentInChildren<FaceMouse>();
@@ -105,31 +106,37 @@ public class Player : MonoBehaviour
         if (startJump)
         {
             startJump = false;
-            falling = false;
+            falling = true;
+            animationController.ResetTrigger("IsFalling");
             animationController.SetTrigger("IsJumping");
             JumpCharacter(new Vector3(0f, 1f, 0f));
-            CheckDistanceToFloor();
+            
+        }
+
+        if (falling) 
+        {
+            Invoke("CheckDistanceToFloor", fallTime);
+
         }
     }
 
     private void CheckDistanceToFloor()
     {
-        falling = true;
 
-        while (falling)
-        {
             RaycastHit hitFall;
             if (Physics.Raycast(bot.position, Vector3.down, out hitFall)) ;
             {
                 print(hitFall.distance);
-                if (hitFall.distance < startFallDist) 
+
+            if (hitFall.distance < startFallDist && fallLimit < 1) 
                 {
+                    fallLimit++;
                     falling = false;
-                    animationController.SetTrigger("isFalling");
-                    print("falling");
+                    animationController.SetTrigger("IsFalling");
+                    print("falling`");
+                    fallLimit = 0;
                     //play sound
 
-                }
             }
         }
     }
