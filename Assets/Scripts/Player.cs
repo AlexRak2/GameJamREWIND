@@ -138,7 +138,6 @@ public class Player : MonoBehaviour
                 fallLimit++;
                 falling = false;
                 animationController.SetTrigger("IsFalling");
-                print("falling");
                 fallLimit = 0;
             }
             else
